@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import City from './city';
+import City from './city/city';
 
 class App extends Component {
   constructor(props) {

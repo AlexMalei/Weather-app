@@ -1,1 +1,2 @@
-export const MILLS_IN_HOURS = 1000 * 60 * 60;
+export const MILLISECONDS_IN_HOURS = 1000 * 60 * 60;
+export const TWO_HOURS_IN_MILLISECONDS = MILLISECONDS_IN_HOURS * 2;

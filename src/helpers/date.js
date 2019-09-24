@@ -1,8 +1,8 @@
-import { MILLS_IN_HOURS } from '../constants/date';
+import { TWO_HOURS_IN_MILLISECONDS } from '../constants/date';
 
-export function getDifferenceInHours(newDate, oldDate) {
-  const dateDifferenceInMilliseconds = newDate - oldDate;
-  const hours = dateDifferenceInMilliseconds / MILLS_IN_HOURS;
+export function isNeededUpdate(lastUpdateTime) {
+  const now = new Date().getTime();
+  const dateDifference = now - lastUpdateTime;
 
-  return hours;
+  return TWO_HOURS_IN_MILLISECONDS < dateDifference;
 }

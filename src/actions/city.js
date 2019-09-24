@@ -1,16 +1,24 @@
-const SELECT_CITY = 'SELECT_CITY';
+const REQUEST_CITY = 'REQUEST_CITY';
+const UPDATE_CITY = 'UPDATE_CITY';
 
-function selectCity(city) {
+function requestCity() {
   return {
-    type: SELECT_CITY,
+    type: REQUEST_CITY
+  };
+}
+
+function updateCity(city) {
+  return {
+    type: UPDATE_CITY,
     city
   };
 }
 
 export const ActionNames = {
-  SELECT_CITY
+  UPDATE_CITY,
+  REQUEST_CITY
 };
 
 export const Actions = {
-  selectCity
+  requestCity
 };

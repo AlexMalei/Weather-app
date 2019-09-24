@@ -1,1 +1,1 @@
-export const LOCATION_URL = 'http://ip-api.com/json';
+export const CITY_REQUEST_URL = 'http://ip-api.com/json';
