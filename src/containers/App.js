@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 
 import City from './city/city';
+import Weather from './weather/weather';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
-  componentDidMount() {}
-
-  render() {
-    return <City />;
-  }
-}
+const App = () => {
+  return (
+    <React.Fragment>
+      <City />
+      <Weather />
+    </React.Fragment>
+  );
+};
 
 export default App;

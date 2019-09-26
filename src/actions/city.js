@@ -7,10 +7,10 @@ function requestCity() {
   };
 }
 
-function updateCity(city) {
+function updateCity(data) {
   return {
     type: UPDATE_CITY,
-    city
+    data
   };
 }
 
@@ -20,5 +20,6 @@ export const ActionNames = {
 };
 
 export const Actions = {
-  requestCity
+  requestCity,
+  updateCity
 };

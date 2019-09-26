@@ -1,14 +1,16 @@
 import { connect } from 'react-redux';
 import { Actions as CityActions } from '../../actions/city';
 
-import City from './cityComponent';
+import City from './city.jsx';
 
 const mapStateToProps = state => ({
-  city: state.city
+  city: state.city,
+  lastUpdate: state.lastUpdate,
+  loading: state.loading
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateCity: city => dispatch(CityActions.requestCity(city))
+  updateCity: () => dispatch(CityActions.requestCity())
 });
 
 export default connect(

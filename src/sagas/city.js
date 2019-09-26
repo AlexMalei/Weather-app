@@ -1,12 +1,14 @@
-import { put, call, takeEvery } from 'redux-saga/effects';
+import { put, all, call, takeEvery } from 'redux-saga/effects';
 import { performFetchingCity } from '../api/city';
-import { ActionNames } from '../actions/city';
+import { ActionNames as CityActionNames } from '../actions/city';
 
-export function* fetchCity(action) {
+function* fetchCity() {
+  console.log('IN FETCH CITY');
   const currentCity = yield call(performFetchingCity);
-  console.log(currentCity);
+  yield put({ type: CityActionNames.UPDATE_CITY, city: currentCity });
+  console.log('AFTER FETCH CITY');
 }
 
 export default function* citySaga() {
-  yield takeEvery(ActionNames.REQUEST_CITY, fetchCity);
+  yield all([takeEvery(CityActionNames.REQUEST_CITY, fetchCity)]);
 }
