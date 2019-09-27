@@ -1,16 +1,16 @@
-const SELECT_WEATHER_SERVICE = 'SELECT_WEATHER_SERVICE';
+const UPDATE_WEATHER_SERVICE = 'UPDATE_WEATHER_SERVICE';
 
-function selectWeatherService(service) {
+function updateWeatherService(service) {
   return {
-    type: SELECT_WEATHER_SERVICE,
+    type: UPDATE_WEATHER_SERVICE,
     service
   };
 }
 
 export const ActionNames = {
-  SELECT_WEATHER_SERVICE
+  UPDATE_WEATHER_SERVICE
 };
 
 export const Actions = {
-  selectWeatherService
+  updateWeatherService
 };

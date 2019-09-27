@@ -1,19 +1,20 @@
-import { put, all, call, takeEvery } from 'redux-saga/effects';
+import { put, call, takeEvery } from 'redux-saga/effects';
 import { performFetchingWeather } from '../api/weatherData';
-import { ActionNames as WeatherDataActionNames } from '../actions/weatherData';
+import { ActionNames as WeatherActionNames } from '../actions/weatherData';
+import { kelvinToCelsius } from '../helpers/temperatureConvertor';
 
-function* fetchWeather() {
-  console.log('FETCHING WEATHER');
-  const weatherData = yield call(performFetchingWeather);
+function* fetchWeather(action) {
+  const temperatureInKelvin = yield call(performFetchingWeather, action.city);
+  const temperatureInCelsius = kelvinToCelsius(temperatureInKelvin);
 
-  console.log('AFTER FETCHING');
-  console.log(weatherData);
-
-  yield put({ type: WeatherDataActionNames.UPDATE_WEATHER_DATA });
+  yield put({
+    type: WeatherActionNames.UPDATE_WEATHER_DATA,
+    data: {
+      temperature: temperatureInCelsius
+    }
+  });
 }
 
-export default function* weatherDataSaga() {
-  yield all([
-    takeEvery(WeatherDataActionNames.REQUEST_WEATHER_DATA, fetchWeather)
-  ]);
+export default function* weatherSaga() {
+  yield takeEvery(WeatherActionNames.REQUEST_WEATHER_DATA, fetchWeather);
 }

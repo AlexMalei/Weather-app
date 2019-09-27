@@ -7,7 +7,7 @@ import weatherDataReducer from './weatherData';
 const rootReducer = combineReducers({
   city: cityReducer,
   weatherService: weatherServiceReducer,
-  weatherData: weatherDataReducer
+  weather: weatherDataReducer
 });
 
 export default rootReducer;

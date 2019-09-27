@@ -1,9 +1,10 @@
 const REQUEST_WEATHER_DATA = 'REQUEST_WEATHER_DATA';
 const UPDATE_WEATHER_DATA = 'UPDATE_WEATHER_DATA';
 
-function requestWeatherData() {
+function requestWeatherData(city) {
   return {
-    type: REQUEST_WEATHER_DATA
+    type: REQUEST_WEATHER_DATA,
+    city
   };
 }
 function updateWeatherData(data) {
